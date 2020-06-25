@@ -23,6 +23,7 @@ public class StringCast {
         System.out.println(date);
 
         Date oldDate = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        System.out.println(oldDate);
 
     }
 }
