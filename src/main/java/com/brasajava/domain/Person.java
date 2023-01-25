@@ -1,10 +1,10 @@
 package com.brasajava.domain;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
+import lombok.Data;
 
+import java.util.*;
+
+@Data
 public class Person {
 
     private long id;
@@ -22,7 +22,7 @@ public class Person {
         this.name = names[(int) Math.round(Math.random() * (names.length -1))];
         this.lastname = lastnames[(int) Math.round(Math.random() * (lastnames.length -1))];
         this.age = (int) Math.round(Math.random() * 90);
-        this.addresses = new ArrayList<>(Arrays.asList(new Address(id)));
+        this.addresses = new ArrayList<>(Collections.singletonList(new Address(id)));
         String username = getName()+getLastname();
         this.emails = new ArrayList<>(Arrays.asList(
                 new Email("Home",username +"@.home.com"),
@@ -32,62 +32,6 @@ public class Person {
                 new Telephone("Home", UUID.randomUUID().toString()),
                 new Telephone("Mobile", UUID.randomUUID().toString()),
                 new Telephone("Work", UUID.randomUUID().toString())));
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public List<Address> getAddresses() {
-        return addresses;
-    }
-
-    public void setAddresses(List<Address> addresses) {
-        this.addresses = addresses;
-    }
-
-    public List<Contact> getEmails() {
-        return emails;
-    }
-
-    public void setEmails(List<Contact> emails) {
-        this.emails = emails;
-    }
-
-    public List<Contact> getTelephones() {
-        return telephones;
-    }
-
-    public void setTelephones(List<Contact> telephones) {
-        this.telephones = telephones;
     }
 
     @Override
