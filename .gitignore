@@ -1,2 +1,9 @@
 # Project exclude paths
-/target/
+target/
+.settings/
+.classpath
+.factorypath
+.project
+.idea/
+*.iml
+*.plantuml
